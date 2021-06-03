@@ -5,6 +5,7 @@ const taskList = document.querySelector(".task-list");
 
 //Event Listeners
 taskButton.addEventListener('click', addTask);
+taskList.addEventListener('click', deleteTask);
 
 //Functions
 
@@ -17,7 +18,7 @@ function addTask(event) {
   tasksDiv.classList.add('tasks');
   //Create tasks list <li>
   const newTask = document.createElement('li');
-  newTask.innerText = 'hey';
+  newTask.innerText = taskInput.value;
   newTask.classList.add('task-item');
   tasksDiv.appendChild(newTask); //This puts the new task list item into the div
    //Need to edit it to where they appear at the top of the list instead of the bottom*
@@ -28,16 +29,27 @@ function addTask(event) {
   tasksDiv.appendChild(deleteButton); //This adds the delete buttons into the div
   //Append together with the task list
   taskList.appendChild(tasksDiv);
+  //Clear task input value
+  taskInput.value = "";
 //Add tasks to local storage
   //storage.addItem()
 }
 
 //Remove tasks from list
-function deleteTask() {
-//storage.removeItem()
+//Delete Tasks
+function deleteTask(e) {
+  const task = e.target;
+  //Delete task
+  if (task.classList[0] === 'delete-btn') {
+    const items = task.parentElement;
+    items.remove();
+  }
+  //storage.removeItem()
 };
 
-/* local storage is key, value pairs: in this  instance would? 
+
+
+/* local storage is key, value pairs: in this  instance would I? 
 key = task
 value = task input submitted
 Input:

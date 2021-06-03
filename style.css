@@ -100,3 +100,11 @@ form button:hover {
   background: #aa0000;
   color: white;
 }
+
+.task-input {
+  color: black;
+}
+
+.task-item {
+  margin: 0rem 0.5rem;
+}
