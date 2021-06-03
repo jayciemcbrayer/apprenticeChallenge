@@ -21,7 +21,9 @@ function addTask(event) {
   newTask.innerText = taskInput.value;
   newTask.classList.add('task-item');
   tasksDiv.appendChild(newTask); //This puts the new task list item into the div
-   //Need to edit it to where they appear at the top of the list instead of the bottom*
+      //Need to edit it to where they appear at the top of the list instead of the bottom*
+  //Add task to local storage
+  saveTasksOnLocal(taskInput.value);
   //Delete button
   const deleteButton = document.createElement('button');
   deleteButton.innerText = "Delete";
@@ -32,7 +34,7 @@ function addTask(event) {
   //Clear task input value
   taskInput.value = "";
 //Add tasks to local storage
-  //storage.addItem()
+  //storage.addItem(key, value)
 }
 
 //Remove tasks from list
@@ -41,13 +43,23 @@ function deleteTask(e) {
   const task = e.target;
   //Delete task
   if (task.classList[0] === 'delete-btn') {
-    const items = task.parentElement;
-    items.remove();
+    const item = task.parentElement;
+    item.remove();
   }
   //storage.removeItem()
 };
 
-
+function saveTasksOnLocal(task) {
+  //Checks to see if item already exsists in local storage
+  let tasks;
+  if (localStorage.getItem('tasks') === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'));
+  }
+  tasks.push(task);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
 
 /* local storage is key, value pairs: in this  instance would I? 
 key = task
@@ -57,4 +69,6 @@ setItem();
 
 Delete:
 removeItem();
+
+//Sortby or Orderby
 */

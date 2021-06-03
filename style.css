@@ -108,3 +108,7 @@ form button:hover {
 .task-item {
   margin: 0rem 0.5rem;
 }
+
+hr.new1 {
+  border-top: 1px solid black;
+}
