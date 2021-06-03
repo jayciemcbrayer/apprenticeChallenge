@@ -7,3 +7,16 @@ To Do:
 -Create a custom background
 -Add colors to buttons; one for add, another for delete
  */
+
+.title {
+  font-family: "Barlow", sans-serif;
+  font-size: 60px;
+}
+
+input {
+  font-family: "Lato", sans-serif;
+}
+
+button {
+  font-family: "Lato", sans-serif;
+}
