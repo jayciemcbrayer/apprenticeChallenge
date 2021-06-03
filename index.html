@@ -5,27 +5,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Items</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <!--Primary Font-->
   <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Lato&display=swap" rel="stylesheet"> 
   <!--Secondary Font-->
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> 
   <!--Bootstrap-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-  <div class="container">
-    <h1 class="title">Items</h1>
-    <form class="new-task">
-      <input type="text" id="task" placeholder="New Item...">
-      <button type="submit" class="add-item">Add Item</button>
-    </form>
-    <form class="delete-task">
-      <input disabled>
-      <button type="submit">Delete</button>
-    </form>
+  <header>
+    <h1>Items</h1>
+  </header>
+    <!--Task Items Input-->
+  <form>
+    <input type="text" class="task-input" placeholder="New Item...">
+    <button type="submit" class="task-btn">Add Item</button>
+  </form>
+  <div class="task-container">
+    <ul class="task-list"></ul>
   </div>
+
+
 
 
   <script src="script.js"></script>
