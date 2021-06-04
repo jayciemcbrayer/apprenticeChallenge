@@ -39,14 +39,11 @@ function addTask(event) {
 //Remove tasks from list
 //Delete Tasks
 function deleteTask(e) {
-  const task = e.target;
+  const task = e.target.previousElementSibling.textContent;
   //Delete task
-  if (task.classList[0] === 'delete-btn') {
-    const item = task.parentElement;
-    deleteTask(todo);
+   const item = e.target.parentElement;
     item.remove();
-  }
-  //storage.removeItem()
+    deleteTaskFromStorage(task);
 };
 
 function saveTasksOnLocal(task) {
@@ -87,7 +84,7 @@ function getTasks() {
   });
 }
 
-function deleteTask(task) {
+function deleteTaskFromStorage(task) {
   //Checks to see if item already exsists in local storage
   let tasks;
   if (localStorage.getItem('tasks') === null) { //If it's not already stored, it adds the item to local storage
@@ -95,19 +92,17 @@ function deleteTask(task) {
   } else {
     tasks = JSON.parse(localStorage.getItem('tasks')); //loads saved data from local storage to the task list on the page
   }
-  const taskIndex = task.children[0].innerText;
-  tasks.splice(tasks.indexOf(taskIndex), 1); //Tells what position of the element to remove and how many that you want to remove
+  //console.log(tasks.indexOf(task));
+  //console.log(tasks.splice(tasks.indexOf(task)));
+  //const taskIndex = task.children[0];
+  tasks.splice(tasks.indexOf(task), 1); //Tells what position of the element to remove and how many that you want to remove
   localStorage.setItem('tasks', JSON.stringify(tasks));
+  //storage.removeItem(task);
 }
 
-/* local storage is key, value pairs: in this  instance would I? 
-key = task
-value = task input submitted
-Input:
-setItem();
+/* 
+Sortby or Orderby ? to make newest list items appear at the top of the list
 
-Delete:
-removeItem();
-
-//Sortby or Orderby
+store item , filter method, access key for local storage removal
+target the
 */
