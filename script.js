@@ -31,7 +31,8 @@ function addTask(event) {
   deleteButton.classList.add("delete-btn");
   tasksDiv.appendChild(deleteButton); //This adds the delete buttons into the div
   //Append together with the task list
-  taskList.appendChild(tasksDiv);
+  //taskList.appendChild(tasksDiv);
+  taskList.insertBefore(tasksDiv, taskList.childNodes[0]);
   //Clear task input value
   taskInput.value = "";
 }
@@ -55,6 +56,7 @@ function saveTasksOnLocal(task) {
     tasks = JSON.parse(localStorage.getItem('tasks')); //loads saved data from local storage to the task list on the page
   }
   tasks.push(task);
+  //tasks.unshift(task);
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
@@ -74,13 +76,16 @@ function getTasks() {
   newTask.innerText = task;
   newTask.classList.add('task-item');
   tasksDiv.appendChild(newTask); //This puts the new task list item into the div
+  //tasksDiv.insertBefore(newTask, tasksDiv.childNodes[0]);
   //Delete button for each item in storage
   const deleteButton = document.createElement('button');
   deleteButton.innerText = "Delete";
   deleteButton.classList.add("delete-btn");
   tasksDiv.appendChild(deleteButton); //This adds the delete buttons into the div
+  //tasksDiv.insertBefore(deleteButton, tasksDiv.childNodes[0]);
   //Append together with the task list
-  taskList.appendChild(tasksDiv);
+  //taskList.appendChild(tasksDiv);
+  taskList.insertBefore(tasksDiv, taskList.childNodes[0]);
   });
 }
 
@@ -99,6 +104,7 @@ function deleteTaskFromStorage(task) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
   //storage.removeItem(task);
 }
+
 
 /* 
 Sortby or Orderby ? to make newest list items appear at the top of the list

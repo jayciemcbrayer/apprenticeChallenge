@@ -39,7 +39,7 @@ h1 {
 
 form input,
 form button {
-  padding: 0.5rem;
+  padding: 20px;
   font-size: 3rem;
   border: none;
   background: white;
@@ -120,4 +120,10 @@ hr {
 .container {
   justify-content: center;
   align-items: center;
+  border: 5px solid rgba(252, 252, 252, 0.399);
+  border-radius: 15px;
+}
+
+form {
+  margin: auto;
 }
