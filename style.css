@@ -112,8 +112,9 @@ form button:hover {
 }
 
 hr {
-  border-top: 1px solid black;
-  width: 40%;
+  border-top: 5px solid black;
+  width: 45%;
+  margin: auto;
 }
 
 .container {

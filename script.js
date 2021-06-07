@@ -102,6 +102,7 @@ function deleteTaskFromStorage(task) {
 
 /* 
 Sortby or Orderby ? to make newest list items appear at the top of the list
+unshift?
 
 store item , filter method, access key for local storage removal
 target the
