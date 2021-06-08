@@ -21,11 +21,16 @@ function addTask(event) {
   const newTask = document.createElement('li');
   newTask.innerText = taskInput.value;
   newTask.classList.add('task-item');
+  const savedTasks = JSON.parse(localStorage.getItem('tasks'));
   //Prevent the submission of a blank input
   if (taskInput.value == "") {
     alert("New task cannot be blank")
     return false;
-  };
+  } else if (savedTasks.includes(taskInput.value)) {
+    alert("Task already exsists")
+    taskInput.value = "";
+    return false;
+  }
   tasksDiv.appendChild(newTask); //This puts the new task list item into the div
       //Need to edit it to where they appear at the top of the list instead of the bottom*
   //Add task to local storage
@@ -109,14 +114,3 @@ function deleteTaskFromStorage(task) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
   //storage.removeItem(task);
 }
-
-//Prevent an empty input submission
-
-
-/* 
-Sortby or Orderby ? to make newest list items appear at the top of the list
-unshift?
-
-store item , filter method, access key for local storage removal
-target the
-*/
