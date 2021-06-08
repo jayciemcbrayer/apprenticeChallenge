@@ -21,6 +21,11 @@ function addTask(event) {
   const newTask = document.createElement('li');
   newTask.innerText = taskInput.value;
   newTask.classList.add('task-item');
+  //Prevent the submission of a blank input
+  if (taskInput.value == "") {
+    alert("New task cannot be blank")
+    return false;
+  };
   tasksDiv.appendChild(newTask); //This puts the new task list item into the div
       //Need to edit it to where they appear at the top of the list instead of the bottom*
   //Add task to local storage
@@ -104,6 +109,8 @@ function deleteTaskFromStorage(task) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
   //storage.removeItem(task);
 }
+
+//Prevent an empty input submission
 
 
 /* 
